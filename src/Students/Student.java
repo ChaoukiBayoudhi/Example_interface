@@ -15,6 +15,7 @@ public class Student implements ICalcul {
     private ArrayList<Mark> lstMarks=new ArrayList<>();
 
     public Student() {
+
     }
 
     public Student(int id, String name, ArrayList<Mark> lstMarks) {
@@ -55,6 +56,7 @@ public class Student implements ICalcul {
     }
     public long evaluateAge()
     {
+
         return ChronoUnit.DAYS.between(LocalDate.now(),birthDate);
     }
 

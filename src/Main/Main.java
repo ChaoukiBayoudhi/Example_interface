@@ -33,11 +33,12 @@ public class Main {
         System.out.println("1. Ajouter un enseignant");
         System.out.println("2. Afficher Les enseignants");
         System.out.println("3. Trier les enseignats par pourcentage d'abscence");
-        System.out.println("4. Retour");
+        System.out.println("4. Visualiser l'état d'abscence des enseignants");
+        System.out.println("5. Retour");
         do{
             System.out.print("\t\tChoix :  ");
             choix=sc.nextInt();
-        }while(choix<1||choix>4);
+        }while(choix<1||choix>5);
         return choix;
     }
     public static int studentMenu()
@@ -78,6 +79,7 @@ public class Main {
                                     int id=sc.nextInt();
                                     System.out.println("Name ? ");
                                     String name=sc.nextLine();
+                                    name=sc.nextLine();
                                     List<Session> lstTaughts=new ArrayList<>();
                                     teachers.addTeacher(t);
                                 }catch (Exception e){
