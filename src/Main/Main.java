@@ -6,6 +6,7 @@ import Teachers.Teachers;
 import Teachers.Teacher;
 import Teachers.Session;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -31,14 +32,17 @@ public class Main {
         Scanner sc =new Scanner(System.in);
         System.out.println("Selectionner un choix :");
         System.out.println("1. Ajouter un enseignant");
-        System.out.println("2. Afficher Les enseignants");
-        System.out.println("3. Trier les enseignats par pourcentage d'abscence");
-        System.out.println("4. Visualiser l'état d'abscence des enseignants");
-        System.out.println("5. Retour");
+        System.out.println("2. Ajouter une séance");
+        System.out.println("3. Afficher Les enseignants");
+        System.out.println("4. Trier les enseignants par pourcentage d'abscence");
+        System.out.println("5. Trier les enseignants par \"Nom\" croissant");
+        System.out.println("6. Trier les enseignants par \"Nom\" decroissant");
+        System.out.println("7. Visualiser l'état d'abscence des enseignants");
+        System.out.println("8. Retour");
         do{
             System.out.print("\t\tChoix :  ");
             choix=sc.nextInt();
-        }while(choix<1||choix>5);
+        }while(choix<1||choix>8);
         return choix;
     }
     public static int studentMenu()
@@ -80,18 +84,54 @@ public class Main {
                                     System.out.println("Name ? ");
                                     String name=sc.nextLine();
                                     name=sc.nextLine();
-                                    List<Session> lstTaughts=new ArrayList<>();
+                                    t.setId(id);
+                                    t.setName(name);
                                     teachers.addTeacher(t);
+                                    System.out.println("L'enseignant a été ajouté avec succés ...");
                                 }catch (Exception e){
                                     System.out.println(e.getMessage());
                                 }
                                 break;
                             case 2:
+                                try {
+                                    teachers.addAbscenceSession();
+                                } catch (Exception e) {
+                                    System.out.println(e.getMessage());
+                                }
                                 break;
                             case 3:
+                                try {
+                                    System.out.println("La Liste de tous les enseignants :");
+                                    teachers.showAllTeachers();
+                                } catch (Exception e) {
+                                    System.out.println(e.getMessage());
+                                }
                                 break;
+                            case 4:
+                                try {
+                                    teachers.sortTeachers_V2();
+                                } catch (Exception e) {
+                                    System.out.println(e.getMessage());
+                                }
+                                break;
+                            case 5:
+                                System.out.println("Liste des enseignats triés par nom (ordre croissant) :");
+                                    teachers.sortTeachersByName()
+                                    .forEach(x->System.out.println(x));
+
+                                break;
+                            case 6:
+                                System.out.println("Liste des enseignats triés par nom (ordre decroissant) :");
+                                teachers.sortTeachersByNameReversed()
+                                        .forEach(x->System.out.println(x));
+                                break;
+                            case 7:
+                                System.out.println("La Liste des abscences de tous les enseignants :");
+                                teachers.showAllAvgAbsence();
+                                break;
+
                         }
-                    }while(choix2!=4);
+                    }while(choix2!=8);
                     break;
                 case 2:
                     do {

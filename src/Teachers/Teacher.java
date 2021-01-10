@@ -72,10 +72,10 @@ public class Teacher implements ICalcul {
     @Override
     public String toString() {
         return "Teacher{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", taughtSessions=" + taughtSessions +
-                ", AbsentSessions=" + AbsentSessions +
+                "id = " + id +
+                ", nom = '" + name + '\'' +
+                ", nbre des séances assurées = " + taughtSessions.size() +
+                ", nbre des séances d'abscence = " + AbsentSessions.size() +
                 '}';
     }
 
