@@ -94,7 +94,7 @@ public class Main {
                                 break;
                             case 2:
                                 try {
-                                    teachers.addAbscenceSession();
+                                    teachers.addSession();
                                 } catch (Exception e) {
                                     System.out.println(e.getMessage());
                                 }

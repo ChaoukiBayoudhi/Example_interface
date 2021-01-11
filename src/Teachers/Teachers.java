@@ -77,7 +77,7 @@ public class Teachers {
     }
     private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm";
 
-    public void addAbscenceSession() throws NotFoundException, ExistException, ParseException {
+    public void addSession() throws NotFoundException, ExistException, ParseException {
         Scanner sc=new Scanner(System.in);
         System.out.println("Id de l'enseignant ? ");
         final int id=sc.nextInt();
@@ -91,10 +91,11 @@ public class Teachers {
         int idSession = sc.nextInt();
         Session session=new Session();
         session.setId(idSession);
-        if(lstTeachers.contains(session))
+        if(teacher.getAbsentSessions().contains(session)||teacher.getTaughtSessions().contains(session))
             throw new ExistException("Cette séances existe déjà");
         System.out.println("Nom séance ? ");
         String name= sc.nextLine();
+        name= sc.nextLine();
         System.out.println("Date de la séance ('yyyy-MM-dd HH:mm')");
         String date = sc.nextLine();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT);
